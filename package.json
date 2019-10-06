@@ -1,0 +1,61 @@
+{
+  "name": "react-parcel-lint",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel ./public/index.html --open",
+    "build": "parcel build ./public/index.html/"
+  },
+  "postcss": {
+    "modules": false,
+    "plugins": {
+      "autoprefixer": {
+        "overrideBrowserslist": [
+          ">1%",
+          "last 4 versions",
+          "Firefox ESR",
+          "not ie < 9"
+        ],
+        "flexbox": "no-2009"
+      }
+    }
+  },
+  "stylelint": {
+    "rules": {
+      "at-rule-no-unknown": null,
+      "scss/at-rule-no-unknown": true,
+      "scss/at-extend-no-missing-placeholder": true,
+      "shorthand-property-no-redundant-values": true,
+      "no-duplicate-selectors": true,
+      "order/properties-alphabetical-order": true,
+      "string-quotes": "single"
+    }
+  },
+  "lint-staged": {  "*.{js,jsx}": [    "pretty-quick --staged",    "eslint src/ --fix",    "git add"  ]},
+  "precommit": "lint-staged",
+  "devDependencies": {
+    "autoprefixer": "^9.6.4",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "node-sass": "^4.12.0",
+    "parcel-bundler": "^1.12.3"
+  },
+  "dependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.1.2",
+    "husky": "^3.0.8",
+    "lint-staged": "^9.4.1",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  }
+}
