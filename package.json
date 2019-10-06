@@ -32,7 +32,13 @@
       "string-quotes": "single"
     }
   },
-  "lint-staged": {  "*.{js,jsx}": [    "pretty-quick --staged",    "eslint src/ --fix",    "git add"  ]},
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "pretty-quick --staged",
+      "eslint src/ --fix",
+      "git add"
+    ]
+  },
   "precommit": "lint-staged",
   "devDependencies": {
     "autoprefixer": "^9.6.4",
@@ -43,6 +49,7 @@
     "parcel-bundler": "^1.12.3"
   },
   "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.4.0",
