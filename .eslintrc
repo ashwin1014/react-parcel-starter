@@ -1,6 +1,6 @@
 {
     "extends": ["airbnb", "prettier", "prettier/react", "airbnb/hooks"],
-    "plugins": ["prettier"],
+    "plugins": ["prettier", "react", "jsx-a11y", "react-hooks"],
     "rules": {
       "react/jsx-filename-extension": [
         1,
@@ -9,7 +9,13 @@
         }
       ],
       "react/prop-types": 0,
-      "no-underscore-dangle": 0,
+      "implicit-arrow-linebreak": 0,
+      "prefer-destructuring": 1,
+      "react/no-unused-state": 1,
+      "react/destructuring-assignment": 1,
+      "react-hooks/rules-of-hooks": "error",
+      "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+      "no-underscore-dangle": ["error", { "allowAfterThis": true }],
       "import/imports-first": ["error", "absolute-first"],
       "import/newline-after-import": "error"
     },
