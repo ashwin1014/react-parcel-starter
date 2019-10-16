@@ -29,7 +29,16 @@
       "pretty-quick --staged",
       "eslint src/ --fix",
       "git add"
+    ],
+    "*.{css,scss,md,json}": [
+      "pretty-quick --staged",
+      "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "precommit": "lint-staged",
   "devDependencies": {
@@ -37,6 +46,8 @@
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/plugin-transform-regenerator": "^7.4.5",
+    "@babel/plugin-transform-react-constant-elements",
+    "@babel/plugin-transform-react-inline-elements": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/polyfill": "^7.6.0",
     "@babel/preset-env": "^7.6.3",
@@ -45,12 +56,10 @@
     "autoprefixer": "^9.6.4",
     "eslint-config-airbnb": "^18.0.1",
     "node-sass": "^4.12.0",
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.4",
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "axios": "^0.19.0",
-    "date-fns": "^2.4.1",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-import": "^2.18.2",
@@ -58,16 +67,12 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "7.14.3",
     "eslint-plugin-react-hooks": "1.7.0",
-    "firebase": "^7.1.0",
-    "firebase-admin": "^8.6.0",
-    "firebase-functions": "^3.2.0",
     "husky": "^3.0.8",
     "lint-staged": "^9.4.1",
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "3.2.0"
+    "react-router-dom": "^5.0.0"
   }
 }
