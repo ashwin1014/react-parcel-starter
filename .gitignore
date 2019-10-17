@@ -4,6 +4,3 @@
 /node_modules
 .cache
 dist
-
-# Ignore firebase config
-# /src/firebase/config.js
