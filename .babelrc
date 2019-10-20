@@ -4,8 +4,8 @@
     ["@babel/preset-react", {}]
   ],
   "plugins": [
+    "@babel/plugin-transform-react-inline-elements",
     "@babel/plugin-transform-react-constant-elements",
-	"@babel/plugin-transform-react-inline-elements",
     "@babel/proposal-class-properties",
     "@babel/syntax-object-rest-spread",
     "@babel/transform-runtime"

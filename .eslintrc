@@ -1,37 +1,54 @@
 {
-    "extends": ["airbnb", "prettier", "prettier/react", "airbnb/hooks"],
-    "plugins": ["prettier", "react", "jsx-a11y", "react-hooks"],
-    "rules": {
-      "react/jsx-filename-extension": [
-        1,
-        {
-          "extensions": [".js", ".jsx"]
-        }
-      ],
-      "react/prop-types": 0,
-      "implicit-arrow-linebreak": 0,
-      "prefer-destructuring": 1,
-      "react/no-unused-state": 1,
-      "react/destructuring-assignment": 1,
-      "react-hooks/rules-of-hooks": "error",
-      "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-      "no-underscore-dangle": ["error", { "allowAfterThis": true }],
-      "no-unused-expressions": ["error", { 
-        "allowShortCircuit": true, 
-        "allowTernary": true, 
-        "allowTaggedTemplates": true 
-        }],
-      "import/imports-first": ["error", "absolute-first"],
-      "import/newline-after-import": "error"
-    },
-    "globals": {
-      "window": true,
-      "document": true,
-      "localStorage": true,
-      "FormData": true,
-      "FileReader": true,
-      "Blob": true,
-      "navigator": true
-    },
-    "parser": "babel-eslint"
-  }
+  "extends": ["airbnb", "prettier", "prettier/react", "airbnb/hooks"],
+  "plugins": ["prettier", "react", "jsx-a11y", "react-hooks"],
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "react/prop-types": 0,
+    "implicit-arrow-linebreak": 0,
+    "prefer-destructuring": 1,
+    "react/no-unused-state": 1,
+    "react/destructuring-assignment": 1,
+    "react/no-array-index-key": 1,
+    "react-hooks/rules-of-hooks": "error",
+    "react/jsx-indent-props": ["warn", 2],
+    "react/jsx-indent": ["warn", 2],
+    "indent": ["warn", 2],
+    "react/jsx-uses-vars": "error",
+    "react/jsx-no-undef": ["error", { "allowGlobals": true}],
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+    "no-unused-expressions": ["error", { 
+      "allowShortCircuit": true, 
+      "allowTernary": true, 
+      "allowTaggedTemplates": true 
+      }],
+    "import/imports-first": ["error", "absolute-first"],
+    "import/newline-after-import": "error",
+    "prettier/prettier": ["error", {}, {
+      "usePrettierrc": true
+    }],
+    "quotes": ["error", "single"],
+    "jsx-quotes": ["error", "prefer-single"],
+    "max-len": ["error", {"code": 90, "ignoreUrls": true}],
+    "no-confusing-arrow": ["error", { "allowParens": false }]
+  },
+  "globals": {
+    "window": true,
+    "document": true,
+    "localStorage": true,
+    "FormData": true,
+    "FileReader": true,
+    "Blob": true,
+    "navigator": true
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "parser": "babel-eslint"
+}

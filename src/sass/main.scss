@@ -1,13 +1,13 @@
 @import 'variables';
 
 *,
-*::after
-,*::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 body {
-    color: $black;
+  color: $black;
 }

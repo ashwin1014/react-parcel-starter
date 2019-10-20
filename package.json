@@ -6,8 +6,8 @@
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf ./dist",
-    "start": "parcel ./public/index.html --open",
-    "build": "parcel build ./public/index.html/",
+    "start": "cross-env NODE_ENV=development parcel ./public/index.html --open",
+    "build": "cross-env NODE_ENV=production parcel build ./public/index.html/",
     "sourcemap": "source-map-explorer --html ./dist/index.js ./dist/index.map > source-map.html"
   },
   "postcss": {
@@ -45,19 +45,21 @@
     "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
-    "@babel/plugin-transform-regenerator": "^7.4.5",
     "@babel/plugin-transform-react-constant-elements": "^7.6.3",
     "@babel/plugin-transform-react-inline-elements": "^7.2.0",
+    "@babel/plugin-transform-regenerator": "^7.4.5",
     "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/polyfill": "^7.6.0",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "7.6.3",
-    "babel-eslint": "^10.0.3",
     "add": "^2.0.6",
     "autoprefixer": "^9.6.4",
+    "babel-eslint": "^10.0.3",
+    "cross-env": "^6.0.3",
     "eslint-config-airbnb": "^18.0.1",
     "node-sass": "^4.12.0",
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "latest",
+    "parcel-plugin-bundle-visualiser": "^1.2.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
@@ -68,6 +70,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "7.14.3",
     "eslint-plugin-react-hooks": "1.7.0",
+    "global": "^4.4.0",
     "husky": "^3.0.8",
     "lint-staged": "^9.4.1",
     "prettier": "^1.18.2",
