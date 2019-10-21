@@ -1,6 +1,6 @@
 {
-  "extends": ["airbnb", "prettier", "prettier/react", "airbnb/hooks"],
-  "plugins": ["prettier", "react", "jsx-a11y", "react-hooks"],
+  "extends": ["airbnb", "prettier", "prettier/react", "airbnb/hooks", "plugin:import/errors", "plugin:import/warnings"],
+  "plugins": ["prettier", "react", "jsx-a11y", "react-hooks", "babel"],
   "rules": {
     "react/jsx-filename-extension": [
       1,
@@ -14,12 +14,20 @@
     "react/no-unused-state": 1,
     "react/destructuring-assignment": 1,
     "react/no-array-index-key": 1,
+    "react/jsx-key": [2],
     "react-hooks/rules-of-hooks": "error",
     "react/jsx-indent-props": ["warn", 2],
     "react/jsx-indent": ["warn", 2],
-    "indent": ["warn", 2],
-    "react/jsx-uses-vars": "error",
+    "react/jsx-no-duplicate-props": [2],
+    "react/jsx-uses-vars": [2],
+    "react/jsx-uses-react": [2],
     "react/jsx-no-undef": ["error", { "allowGlobals": true}],
+    "react/no-direct-mutation-state": [2],
+    "react/require-optimization": [1],
+    "react/require-render-return": [2],
+    "jsx-a11y/img-has-alt": [0],
+    "jsx-a11y/img-redundant-alt": [2],
+    "jsx-quotes": ["error", "prefer-single"],
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "no-underscore-dangle": ["error", { "allowAfterThis": true }],
     "no-unused-expressions": ["error", { 
@@ -32,10 +40,16 @@
     "prettier/prettier": ["error", {}, {
       "usePrettierrc": true
     }],
+    "indent": ["warn", 2],
     "quotes": ["error", "single"],
-    "jsx-quotes": ["error", "prefer-single"],
-    "max-len": ["error", {"code": 90, "ignoreUrls": true}],
-    "no-confusing-arrow": ["error", { "allowParens": false }]
+    "max-len": [2, 120, 2],
+    "no-confusing-arrow": ["error", { "allowParens": false }],
+    "babel/array-bracket-spacing": 2,
+    "babel/object-curly-spacing": [2, "always"],
+    "babel/object-shorthand": 2,
+    "babel/arrow-parens": [0, "as-needed"],
+    "babel/no-unused-expressions": 1,
+    "babel/valid-typeof": 1
   },
   "globals": {
     "window": true,
