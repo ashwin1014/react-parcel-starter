@@ -1,26 +1,90 @@
 {
-    "extends": ["airbnb", "prettier", "prettier/react", "airbnb/hooks"],
-    "plugins": ["prettier"],
-    "rules": {
-      "react/jsx-filename-extension": [
-        1,
-        {
-          "extensions": [".js", ".jsx"]
-        }
-      ],
-      "react/prop-types": 0,
-      "no-underscore-dangle": 0,
-      "import/imports-first": ["error", "absolute-first"],
-      "import/newline-after-import": "error"
+  "extends": ["airbnb", "prettier", "prettier/react", "airbnb/hooks", "plugin:import/errors", "plugin:import/warnings"],
+  "plugins": ["import", "prettier", "react", "jsx-a11y", "react-hooks", "babel"],
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "react/prop-types": 0,
+    "implicit-arrow-linebreak": 0,
+    "prefer-destructuring": 1,
+    "react/no-unused-state": 1,
+    "react/destructuring-assignment": 1,
+    "react/no-array-index-key": 1,
+    "react/jsx-key": [2],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-indent-props": ["warn", 2],
+    "react/jsx-indent": ["warn", 2],
+    "react/jsx-no-duplicate-props": [2],
+    "react/jsx-uses-vars": [2],
+    "react/jsx-uses-react": [2],
+    "react/jsx-no-undef": ["error", { "allowGlobals": true}],
+    "react/no-direct-mutation-state": [2],
+    "react/require-optimization": [1],
+    "react/require-render-return": [2],
+    "jsx-a11y/img-has-alt": [0],
+    "jsx-a11y/img-redundant-alt": [2],
+    "jsx-quotes": ["error", "prefer-single"],
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+    "no-unused-expressions": ["error", {
+      "allowShortCircuit": true,
+      "allowTernary": true,
+      "allowTaggedTemplates": true
+      }],
+    "import/imports-first": ["error", "absolute-first"],
+    "import/newline-after-import": "error",
+    "prettier/prettier": ["error", {}, {
+      "usePrettierrc": true
+    }],
+    "indent": ["warn", 2],
+    "quotes": ["error", "single"],
+    "max-len": [2, 200, 2],
+    "no-confusing-arrow": ["error", { "allowParens": false }],
+    "babel/array-bracket-spacing": 2,
+    "babel/object-curly-spacing": [2, "always"],
+    "babel/object-shorthand": 2,
+    "babel/arrow-parens": [0, "as-needed"],
+    "babel/no-unused-expressions": 1,
+    "babel/valid-typeof": 1
+  },
+  "globals": {
+    "window": true,
+    "document": true,
+    "localStorage": true,
+    "FormData": true,
+    "FileReader": true,
+    "Blob": true,
+    "navigator": true
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "settings": {
+    "react": {
+      "version": "16.12"
     },
-    "globals": {
-      "window": true,
-      "document": true,
-      "localStorage": true,
-      "FormData": true,
-      "FileReader": true,
-      "Blob": true,
-      "navigator": true
-    },
-    "parser": "babel-eslint"
+    "import/resolver": {
+      "parcel": {
+        "rootDir": "src"
+      },
+      "node": {
+        "moduleDirectory": ["node_modules", "/"]
+      }
+    }
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   }
+}

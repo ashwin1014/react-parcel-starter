@@ -1,0 +1,15 @@
+import React from 'react';
+import locale from './localization/{{pascalCase name}}.localization';
+import './{{pascalCase name}}.style.scss';
+
+const LOCALIZE = locale.STRINGS;
+
+const {{pascalCase name}} = () => {
+  return (
+    <div>
+      <h2 className='center'>{LOCALIZE.Title} Page</h2>
+    </div>
+  );
+};
+
+export default {{pascalCase name}};

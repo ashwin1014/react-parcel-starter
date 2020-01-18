@@ -1,9 +1,17 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-.cache
-dist
+.cache/
+coverage/
+dist/
+node_modules/
+*.log
 
 # Ignore firebase config
 # /src/firebase/config.js
+.DS_Store
+.DS_Store?
+._*
+.Trashes
+ehthumbs.db
+Thumbs.db
