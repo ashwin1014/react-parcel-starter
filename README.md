@@ -4,7 +4,7 @@
 
 - Clone the repo
   ```
-  >git clone https://github.com/bizbuzzz/BizBuzzz-Web-Customer.git
+  >git clone https://github.com/ashwin1014/react-parcel-starter.git
   ```
 - Open repository from terminal
   ```

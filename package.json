@@ -14,6 +14,10 @@
     "sourcemap": "source-map-explorer --html ./dist/index.js ./dist/index.map > source-map.html",
     "generate": "plop"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashwin1014/react-parcel-starter.git"
+  },
   "postcss": {
     "modules": false,
     "plugins": {
