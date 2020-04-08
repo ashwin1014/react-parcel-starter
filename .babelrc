@@ -7,6 +7,9 @@
     "@babel/plugin-transform-react-inline-elements",
     "@babel/plugin-transform-react-constant-elements",
     "@babel/plugin-transform-runtime",
-    "@babel/plugin-proposal-class-properties"
+    "@babel/plugin-proposal-class-properties",
+    ["@babel/plugin-proposal-optional-chaining", {}, "optional-chaining"],
+    ["transform-remove-console", { "exclude": [ "error", "warn"] }],
+    "transform-remove-debugger"
   ]
 }
