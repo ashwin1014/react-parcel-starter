@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+      "target": "es2017",
+      "allowSyntheticDefaultImports": false,
+      "experimentalDecorators": true,
+      "jsx": "react",
+      "baseUrl": "./",
+      "paths": {
+        "@assets/*": ["src/assets/*"],
+        "@config/*": ["src/config/*"],
+        "@constants/*": ["src/constants/*"],
+        "@hooks/*": ["src/hooks/*"],
+        "@sharedComponents/*": ["src/sharedComponents/*"],
+        "@pages/*": ["src/app/Pages/*"],
+        "@utils/*": ["src/utils/*"],
+        "*": ["__INVALID__/*"]
+      }
+    },
+    "exclude": ["node_modules"]
+  }
+  

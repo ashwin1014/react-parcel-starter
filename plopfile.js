@@ -46,12 +46,12 @@ module.exports = plop => {
     actions: [
       {
         type: 'add',
-        path: 'src/components/{{pascalCase name}}/{{pascalCase name}}.js',
+        path: 'src/sharedComponents/{{pascalCase name}}/{{pascalCase name}}.js',
         templateFile: 'plop-templates/Component.js.hbs'
       },
       {
         type: 'add',
-        path: 'src/components/{{pascalCase name}}/{{pascalCase name}}.style.scss',
+        path: 'src/sharedComponents/{{pascalCase name}}/{{pascalCase name}}.style.scss',
         templateFile: 'plop-templates/style.scss.hbs'
       }
     ]

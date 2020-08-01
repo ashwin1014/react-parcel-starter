@@ -1,0 +1,137 @@
+@import './breakpoints';
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+
+  $extmods: (
+    eot: '?',
+    svg: '#' + str-replace($name, ' ', '_')
+  );
+
+  $formats: (
+    otf: 'opentype',
+    ttf: 'truetype'
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + '.' + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+// =============================================================================
+// Media Queries
+// =============================================================================
+
+// MIN-WIDTH
+
+// $type -> min-width/max-width
+
+// Small devices
+@mixin sm($type) {
+  @media only screen and (#{$type}: #{$screen-sm}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md($type) {
+  @media only screen and (#{$type}: #{$screen-md}) {
+    @content;
+  }
+}
+
+// Large devices or Tablets
+@mixin lg($type) {
+  @media only screen and (#{$type}: #{$screen-lg}) {
+    @content;
+  }
+}
+
+// Very large devices or Laptops
+@mixin xl($type) {
+  @media only screen and (#{$type}: #{$screen-xl}) {
+    @content;
+  }
+}
+
+// Extra large devices or Desktops
+@mixin xxl($type) {
+  @media only screen and (#{$type}: #{$screen-xxl}) {
+    @content;
+  }
+}
+
+// Custom devices
+@mixin cwd($type, $screen) {
+  @media only screen and (#{$type}: $screen+'px') {
+    @content;
+  }
+}
+
+// =============================================================================
+// Flex Alignment
+// =============================================================================
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-c-center {
+  @include flex-column;
+  align-items: center;
+}
+
+@mixin flex-j-center {
+  @include flex-column;
+  justify-content: center;
+}
+
+@mixin flex-r-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@mixin flex-center-vert {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-center-column {
+  @include flex-center;
+  flex-direction: column;
+}
