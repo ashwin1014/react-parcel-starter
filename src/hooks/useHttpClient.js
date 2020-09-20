@@ -8,7 +8,7 @@ const BASE_URL = apiConfig.API_BASE_URL;
 const handleHeaders = () => ({
   'Content-type': 'application/json; charset=UTF-8',
   Accept: 'application/json, text/plain, */*',
-  secret: getLocalStorageKey('token') || '',
+  secret: getLocalStorageKey('token') || ''
 });
 
 const useHttpClient = () => {
