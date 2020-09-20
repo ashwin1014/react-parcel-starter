@@ -7,6 +7,7 @@
     ["@babel/plugin-proposal-object-rest-spread", {}, "babel-rest-spread"],
     ["@babel/plugin-proposal-optional-chaining", {}, "babel-optional-chaining"],
     ["@babel/plugin-proposal-class-properties", {}, "babel-class-props"],
+    ["@babel/plugin-transform-runtime", { "regenerator": true } ],
     // [
     //   "import",
     //   {

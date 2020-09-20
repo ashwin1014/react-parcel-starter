@@ -1,9 +1,10 @@
 {
   "extends": ["plugin:import/errors", "plugin:import/warnings", "airbnb", "airbnb/hooks", "prettier", "plugin:prettier/recommended", "prettier/react", "plugin:react/recommended"],
   "plugins": ["import", "react", "jsx-a11y", "react-hooks", "babel", "module-resolver"],
+  "root": true,
   "rules": {
     "react/jsx-filename-extension": [
-      1,
+      2,
       {
         "extensions": [".js", ".jsx"]
       }
@@ -26,6 +27,7 @@
     "react/require-render-return": [2],
     "jsx-a11y/img-has-alt": [0],
     "jsx-a11y/img-redundant-alt": [2],
+    "no-nested-ternary": "off",
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "no-underscore-dangle": ["error", { "allowAfterThis": true }],
     "no-unused-expressions": ["error", {
@@ -33,9 +35,16 @@
       "allowTernary": true,
       "allowTaggedTemplates": true
       }],
+    "no-use-before-define": [
+      "error",
+      { "functions": true, "classes": true, "variables": false }
+    ],
     "import/imports-first": ["error", "absolute-first"],
     "import/no-unresolved": 0,
     "import/newline-after-import": "error",
+    "import/prefer-default-export": 0,
+    "import/no-cycle": [2, { "maxDepth": 1, "ignoreExternal": true }],
+    "import/no-absolute-path": [2, { "esmodule": false, "commonjs": false, "amd": false }],
     "prettier/prettier": ["error", {}, {
       "usePrettierrc": true
     }],
@@ -50,14 +59,6 @@
     "babel/no-unused-expressions": 1,
     "babel/valid-typeof": 1,
     "module-resolver/use-alias": 2
-    // "jsx-quotes": ["error", "prefer-single"],
-    // "no-confusing-arrow": ["warn"],
-    // "indent": ["warn", 2],
-    // "babel/array-bracket-spacing": 2,
-    // "babel/object-curly-spacing": [2, "always"],
-    // "babel/object-shorthand": 2,
-    // "react/jsx-indent-props": ["warn", 2],
-    // "react/jsx-indent": ["warn", 2],s
   },
   "globals": {
     "window": true,
@@ -69,7 +70,7 @@
     "navigator": true
   },
   "env": {
-    "es6": true,
+    "es2020": true,
     "node": true,
     "browser": true
   },
@@ -78,12 +79,20 @@
       "version": "16.13.1"
     },
     "import/resolver": {
-      "babel-module": {},
-      "parcel": {
-        "rootDir": "src"
+      "babel-module": {
+        "root": ["./src"],
+        "alias": {
+          "@assets": "./src/assets",
+          "@config": "./src/config",
+          "@constants": "./src/constants",
+          "@hooks": "./src/hooks",
+          "@sharedComponents": "./src/sharedComponents",
+          "@pages":"./src/app/Pages",
+          "@utils": "./src/utils"
+        }
       },
       "node": {
-        "moduleDirectory": ["node_modules", "/"],
+        "root": ["."],
         "extensions": [
           ".js",
           ".jsx"
@@ -91,16 +100,12 @@
       }
     }
   },
-  "import/extensions": [
-    ".js",
-    ".jsx"
-  ],
   "parser": "babel-eslint",
   "parserOptions": {
-    "ecmaVersion": 2018,
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": true,
+      "modules": true
     }
   }
 }

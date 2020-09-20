@@ -1,4 +1,7 @@
+/* eslint-disable new-cap */
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-nested-ternary */
+import dayjs from 'dayjs';
 
 export const isEmpty = (obj) => [Object, Array].includes((obj || {}).constructor) && !Object.entries(obj || {}).length;
 
@@ -6,12 +9,14 @@ export const uid = () =>
   // eslint-disable-next-line operator-linebreak
   Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
 
-export const convertMoney = (amount, convertTo = 'paise', currency = 'INR', locale = 'en-IN') => {
+export const convertMoney = (amount, convertTo = 'paise', shouldConvert = true, currency = 'INR', locale = 'en-IN') => {
   // Money will be sent in paise format from api.
-  let money;
-  if (convertTo === 'paise') {
-    money = amount * 100;
-  } else money = amount / 100;
+  let money = amount;
+  if (shouldConvert) {
+    if (convertTo === 'paise') {
+      money = amount * 100;
+    } else money = amount / 100;
+  }
 
   const formatter = new Intl.NumberFormat(locale, {
     style: 'currency',
@@ -92,4 +97,18 @@ export const getBase64 = (file) => {
     reader.onload = () => resolve(reader.result);
     reader.onerror = (error) => reject(error);
   });
+};
+
+export const getKeyByValue = (object, value) => {
+  return Object.keys(object).find((key) => object[key] === value);
+};
+
+// dayjs
+export const formatTime = (time, format = 'hh:mm A') => {
+  const hr = time.split(':')[0];
+  const min = time.split(':')[1];
+  const now = new dayjs().startOf('day');
+  const newDate = now.add(hr, 'hour').add(min, 'minutes');
+  const formatted = dayjs(newDate).format(format);
+  return formatted;
 };
