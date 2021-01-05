@@ -131,7 +131,7 @@
     "yarn-upgrade-all": "^0.5.4"
   },
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "libphonenumber-js": "^1.7.58",
     "react": "16.13.1",
     "react-dom": "16.13.1",
