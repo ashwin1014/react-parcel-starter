@@ -112,7 +112,7 @@
     "global": "4.4.0",
     "husky": "^4.3.0",
     "lint-staged": "10.2.11",
-    "node-sass": "4.14.1",
+    "node-sass": "7.0.0",
     "parcel-bundler": "1.12.4",
     "parcel-plugin-bundle-visualiser": "1.2.0",
     "parcel-plugin-compress": "2.0.2",
